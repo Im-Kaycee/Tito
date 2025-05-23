@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tito👽❤️‍🔥- Photographer</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <style>
+        .scroll-bg {
+            background-color: rgba(0, 0, 0, 0.9); /* Dark background when scrolled */
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-bg {
+            background-color: rgba(0, 0, 0, 0.9); /* Dark background when scrolled */
+            transition: background-color 0.3s ease;
+        }
+              .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .span-2 {
+            grid-column: span 2;
+        }
+        
+        .h-1 {
+            height: 160px;
+        }
+        
+        .h-2 {
+            height: 240px;
+        }
+        
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .h-1, .h-2 {
+                height: 140px;
+            }
+        }
+        
+        .gallery-item {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            position: relative;
+            background-color: #4a4a4a;
+            transition: transform 0.3s ease-in-out; /* Smooth scaling */
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery-item:hover {
+            transform: scale(1.1); /* Expands the grid item */
+            z-index: 10; /* Ensures the hovered item appears above others */
+        }
+        
+.card {
+  position: relative;
+  width: 50vw;
+  height: 50vh;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  box-shadow: 0 0 0 5px #ffffff80;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card svg {
+  width: 48px;
+  fill: #333;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.card__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  box-sizing: border-box;
+  background-color: #383434d0;
+  backdrop-filter: blur(50px);
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  font-size: 24px;
+  color: #e7e7e7;
+  font-weight: 700;
+}
+
+.card:hover svg {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #dbd5d5;
+  line-height: 1.4;
+}
+/* Loading Screen */
+#loading-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000; /* Black background */
+    z-index: 9999; /* Ensure it appears above all other content */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* Spinning Animation */
+.animate-spin {
+    animation: spin 5s linear infinite;
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+    </style>
+</head>
+<body class="bg-neutral-900">
+    <!--<div id="loading-screen" class="fixed inset-0 bg-neutral-900 flex justify-center items-center z-50">
+        <img src="https://pbs.twimg.com/profile_images/1831808059540140032/oxcAyi53_400x400.jpg" alt="Logo" class="h-20 w-20 animate-spin">
+    </div> -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 py-4 px-8 bg-transparent text-white" >
+        <div class="flex justify-between items-center">
+            <img src="https://pbs.twimg.com/profile_images/1831808059540140032/oxcAyi53_400x400.jpg" alt="Logo" class="h-8">
+
+            <!-- Hamburger Icon -->
+            <div id="menu-btn" class="md:hidden cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </div>
+
+            <!-- Desktop Links -->
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#home" class="hover:text-gray-400">Home</a></li>
+                <li><a href="#about" class="hover:text-gray-400">About</a></li>
+                <li><a href="#portfolio" class="hover:text-gray-400">Portfolio</a></li>
+                <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Mobile Links (Hidden by Default) -->
+        <ul id="mobile-menu" class="hidden flex-col mt-4 space-y-4 text-center bg-black bg-opacity-90 p-4 rounded-lg md:hidden">
+            <li><a href="#home" class="hover:text-gray-400">Home</a></li>
+            <li><a href="#about" class="hover:text-gray-400">About</a></li>
+            <li><a href="#portfolio" class="hover:text-gray-400">Portfolio</a></li>
+            <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="home" class="relative w-full h-[80vh] bg-[url('https://pbs.twimg.com/media/GrS4F96WgAED-T9?format=jpg&name=large')] bg-cover bg-center flex justify-start items-center ">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+    
+        <div class="text-center m-10 z-10">
+            <h1 class="text-6xl text-white">Tito👽❤️‍🔥</h1>
+            <p class="text-white text-2xl">Photographer</p>
+            <a href="#"></a><div class="mt-5 rounded-lg bg-transparent border border-white inline-block p-3 text-white hover:bg-white hover:text-black ease-in-out cursor-pointer"> 
+                Contact Me
+            </div></a>
+        </div>
+       
+        
+        
+    </section>
+    <section id="featured" class="p-8 bg-neutral-900 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6" data-aos="zoom-in">Featured By</h2>
+            <div class="flex justify-center items-center space-x-2" data-aos="fade-up">
+                <h3 class="text-2xl font-semibold">NoteSphere</h3>
+                <!-- Verified Tick -->
+                <img src="icons8-verified-account-30.png" alt="Verified" class="h-6 w-6">
+            </div>
+            <div id="uiverse-card" class="p-8 bg-neutral-900 text-white flex justify-center items-center">
+                <!-- From Uiverse.io by gharsh11032000 -->
+                <div class="card bg-[url('https://pbs.twimg.com/media/GWV-iEtWYAAi1dQ?format=jpg&name=large')] bg-cover bg-[50%_30%] rounded-lg shadow-lg" data-aos="fade-up">
+                    
+                    <div class="card__content">
+                        <p class="card__title text-3xl font-bold mb-4">Featured by NoteSphere</p>
+                        <p class="card__description text-lg text-gray-600 mb-6">Tito was recently featured by NoteSphere for his outstanding photography and creative storytelling.</p>
+                        <a href="https://example.com/notesphere-post" target="_blank" class="inline-block bg-transparent border border-white text-white px-6 py-2 rounded-lg hover:bg-white hover:text-black transition m-4">
+                            Read the Post
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+        <section class="p-4 bg-neutral-900 text-white" id="portfolio" data-aos="fade-up">
+            <h2 class="text-4xl text-center mb-6 font-bold" data-aos="zoom-in">My Portfolio</h2>
+            
+            <div class="bento-grid" data-aos="fade-up" data-aos-delay="200">
+                <!-- Row 1 -->
+                <div class="gallery-item h-1 ">
+                    <img src="https://pbs.twimg.com/media/GrbNAfrW0AAAXKd?format=jpg&name=large" alt="Portfolio item"class="">
+                </div>
+                <div class="gallery-item h-1">
+                    <img src="https://pbs.twimg.com/media/GrYYQW_WkAAA5BP?format=jpg&name=large" alt="Portfolio item" class="object-[50%_30%]">
+                </div>
+                <div class="gallery-item h-1">
+                    <img src="https://pbs.twimg.com/media/Gq6wBO_WYAMRF5M?format=jpg&name=large" alt="Portfolio item" class="object-[50%_20%]">
+                </div>
+                <div class="gallery-item h-1">
+                    <img src="https://pbs.twimg.com/media/GqfVxvHWYAAsa2i?format=jpg&name=large" alt="Portfolio item" class="object-[50%_20%]">
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="gallery-item span-2 h-2">
+                    <img src="https://pbs.twimg.com/media/GpJkrCbW4AAm7mL?format=jpg&name=large" alt="Portfolio item" class="object-top">
+                </div>
+                <div class="gallery-item h-2">
+                    <img src="https://pbs.twimg.com/media/GpPCKgBX0AEOqq-?format=jpg&name=large" alt="Portfolio item" class="object-[50%_20%]">
+                </div>
+                <div class="gallery-item h-2">
+                    <img src="https://pbs.twimg.com/media/Goos0_rXgAAJ_wh?format=jpg&name=large" alt="Portfolio item">
+                </div>
+                
+                <!-- Row 3 -->
+                <div class="gallery-item h-1">
+                    <img src="https://pbs.twimg.com/media/GoO_blbWMAAh3xP?format=jpg&name=large" alt="Portfolio item" class="object-[50%_40%]">
+                </div>
+                <div class="gallery-item h-1">
+                    <img src="https://pbs.twimg.com/media/GoO_bleWcAAhoZy?format=jpg&name=large" alt="Portfolio item" class="object-[50%_20%]">
+                </div>
+                <div class="gallery-item span-2 h-1">
+                    <img src="https://pbs.twimg.com/media/Gm6Fu8KXAAIkehv?format=jpg&name=large" alt="Portfolio item" >
+                </div>
+            </div>
+            
+            <!-- See More Button -->
+            <div class="text-center mt-6">
+                <a href="https://x.com/Tito_Art19">
+                <button class="bg-transparent text-white px-6 py-2 rounded-lg hover:bg-gray-300 transition font-medium border border-white inline-block p-3 text-white hover:bg-white hover:text-black ease-in-out cursor-pointer">
+                    See More
+                </button></a>
+            </div>
+        </section>
+        <section id="collections" class="p-8 bg-neutral-900 text-white">
+            <h2 class="text-4xl text-center mb-10 font-bold" data-aos="zoom-in">Collections</h2>
+        
+          <!-- Main Collection Card -->
+    <div class="relative bg-[url('https://pbs.twimg.com/media/GkxBD4wX0AATB6D?format=jpg&name=medium')] bg-cover bg-center rounded-lg shadow-lg mb-10 mx-auto max-w-4xl h-80 flex flex-col justify-center items-center text-center group" data-aos="fade-up" data-active="false">
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+        <!-- Content -->
+        <div id="content" class="relative z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 class="text-3xl font-bold mb-4">Main Collection</h3>
+            <p class="text-gray-300 mb-6 p-6">Explore our featured collection with stunning visuals and stories.</p>
+            <a href="#" class="bg-transparent border border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition">View Collection</a>
+        </div>
+    </div>
+        
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="200">
+        <!-- Collection Card 1 -->
+        <div class="relative bg-[url('https://pbs.twimg.com/media/GrbNAgVaMAAZAAp?format=jpg&name=large')] bg-cover bg-center rounded-lg shadow-lg h-60 flex flex-col justify-center items-center text-center group">
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+            <!-- Content -->
+            <div id="content" class="relative z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 class="text-xl font-bold mb-2">"White Oyibo" 2025</h3>
+                <p class="text-gray-300 mb-4">A brief description of this collection.</p>
+                <a href="https://x.com/Tito_Art19/status/1924951350569238594" class="bg-transparent border border-white text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">View Collection</a>
+            </div>
+        </div>
+        
+                <!-- Collection Card 2 -->
+        <div class="relative bg-[url('https://pbs.twimg.com/media/Gq6wBO9XAAAnUgC?format=jpg&name=large')] bg-cover bg-center rounded-lg shadow-lg h-60 flex flex-col justify-center items-center text-center group">
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+            <!-- Content -->
+            <div id="content" class="relative z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 class="text-xl font-bold mb-2">"MIDE" 2025</h3>
+                <p class="text-gray-300 mb-4">A brief description of this collection.</p>
+                <a href="https://x.com/Tito_Art19/status/1922667655976165650" class="bg-transparent border border-white text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">View Collection</a>
+            </div>
+        </div>
+             <!-- Collection Card 3 -->
+        <div class="relative bg-[url('https://pbs.twimg.com/media/GqfVxvHWYAAsa2i?format=jpg&name=large')] bg-cover bg-center rounded-lg shadow-lg h-60 flex flex-col justify-center items-center text-center group bg-top">
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+            <!-- Content -->
+            <div id="content" class="relative z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 class="text-xl font-bold mb-2">"Ajoke" 2025</h3>
+                <p class="text-gray-300 mb-4">A brief description of this collection.</p>
+                <a href="https://x.com/Tito_Art19/status/1920738859387675067" class="bg-transparent border border-white text-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">View Collection</a>
+            </div>
+        </div>
+    </div>
+        </section>
+        
+   <footer class="bg-neutral-800 text-white py-8" id="about">
+    <div class="container mx-auto px-6 lg:px-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- About Section -->
+        <div>
+            <h2 class="text-lg font-bold mb-4">About Me</h2>
+            <p class="text-sm text-gray-400">I'm a passionate photographer dedicated to capturing authentic moments and creating timeless visual stories.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h2 class="text-lg font-bold mb-4">Quick Links</h2>
+            <ul class="space-y-2 text-sm">
+                <li><a href="#home" class="hover:text-gray-400">Home</a></li>
+                <li><a href="#about" class="hover:text-gray-400">About</a></li>
+                <li><a href="#portfolio" class="hover:text-gray-400">Portfolio</a></li>
+                <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div>
+            <h2 class="text-lg font-bold mb-4">Contact Me</h2>
+            <p class="text-sm text-gray-400">Have a project in mind? Let's connect!</p>
+            <a href="mailto:your.email@example.com" class="inline-block mt-4 bg-transparent border border-white text-white hover:bg-white px-4 py-2 rounded-lg hover:text-black text-sm">Email Me</a>
+        </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="border-t border-neutral-600 mt-8 pt-4 text-center text-sm text-gray-500">
+        &copy; 2025 Tito. All rights reserved.
+    </div>
+</footer>
+    <script>
+         AOS.init({
+        duration: 1000, // Animation duration in milliseconds
+        once: false, // Whether animation should happen only once
+    });
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scroll-bg');
+            } else {
+                navbar.classList.remove('scroll-bg');
+            }
+        });
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Close mobile menu if clicking outside of it
+    document.addEventListener('click', (event) => {
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnMenuBtn = menuBtn.contains(event.target);
+
+        if (!isClickInsideMenu && !isClickOnMenuBtn) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+    const collectionCards = document.querySelectorAll('.group');
+
+collectionCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const isActive = card.getAttribute('data-active') === 'true';
+
+        // Reset all cards to inactive
+        collectionCards.forEach(c => {
+            c.setAttribute('data-active', 'false');
+            c.querySelector('.absolute').classList.remove('opacity-100');
+            c.querySelector('#content').classList.remove('opacity-100');
+        });
+
+        // If the tapped card was inactive, activate it
+        if (!isActive) {
+            card.setAttribute('data-active', 'true');
+            card.querySelector('.absolute').classList.add('opacity-100');
+            card.querySelector('#content').classList.add('opacity-100');
+        }
+    });
+});
+const uiverseCard = document.querySelector('#uiverse-card .card');
+
+    uiverseCard.addEventListener('click', 'hover', () => {
+        const content = uiverseCard.querySelector('.card__content');
+        const isVisible = content.style.transform === 'rotateX(0deg)';
+
+        // Toggle visibility
+        if (isVisible) {
+            content.style.transform = 'rotateX(-90deg)';
+        } else {
+            content.style.transform = 'rotateX(0deg)';
+        }
+    });
+    window.addEventListener('load', () => {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.style.opacity = '0'; // Fade out
+        setTimeout(() => {
+            loadingScreen.style.display = 'none'; // Remove from view
+        }, 500); // Wait for the fade-out animation
+    });
+    </script>
+</body>
+</html>
